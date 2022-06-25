@@ -24,8 +24,6 @@ import com.example.demo.model.persistence.repositories.UserRepository;
 public class OrderController {
 
     private static final Logger log = LoggerFactory.getLogger(OrderController.class);
-
-
     @Autowired
     private UserRepository userRepository;
 
@@ -50,8 +48,10 @@ public class OrderController {
     public ResponseEntity<List<UserOrder>> getOrdersForUser(@PathVariable String username) {
         User user = userRepository.findByUsername(username);
         if (user == null) {
+            log.info("User {} not found", username);
             return ResponseEntity.notFound().build();
         }
+        log.info("Orders from user {} found.", username);
         return ResponseEntity.ok(orderRepository.findByUser(user));
     }
 }

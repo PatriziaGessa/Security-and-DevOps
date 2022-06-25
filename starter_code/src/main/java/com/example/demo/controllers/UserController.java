@@ -49,12 +49,16 @@ public class UserController {
 
     @PostMapping("/create")
     public ResponseEntity<User> createUser(@RequestBody CreateUserRequest createUserRequest) {
+        log.info("creating new user {}", createUserRequest.getUsername());
         User user = new User();
         user.setUsername(createUserRequest.getUsername());
+
+        log.info("Username set with {}", createUserRequest.getUsername());
+
         Cart cart = new Cart();
         cartRepository.save(cart);
         user.setCart(cart);
-        if (createUserRequest.getPassword().length() < 7 ||
+        if (createUserRequest.getPassword().length() < 8 ||
                 !createUserRequest.getPassword().equals(createUserRequest.getConfirmPassword())) {
             log.error("Password need to longer than seven characters and equals to confirm password");
             return ResponseEntity.badRequest().build();

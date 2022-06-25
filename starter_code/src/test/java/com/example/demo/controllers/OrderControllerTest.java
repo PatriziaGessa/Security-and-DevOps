@@ -15,14 +15,16 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-@RunWith(MockitoJUnitRunner.class)
+
 public class OrderControllerTest {
 
     private OrderController orderController;
@@ -36,48 +38,76 @@ public class OrderControllerTest {
         orderController = new OrderController();
         TestUtils.injectObjects(orderController, "orderRepository", orderRepository);
         TestUtils.injectObjects(orderController, "userRepository", userRepository);
-        when(userRepository.findByUsername("test")).thenReturn(createUser());
-        when(orderRepository.save(any())).thenReturn(createOrder());
-        when(orderRepository.findByUser(any())).thenReturn(List.of(createOrder()));
+
+
     }
 
-    private User createUser() {
-        User user = new User();
-        user.setId(1L);
-        user.setUsername("test");
-        user.setPassword("testPassword");
-        user.setCart(createCart());
-        return user;
-    }
-
-    public Cart createCart() {
-        Cart cart = new Cart();
-        cart.setId(1L);
-        cart.addItem(createItem());
-        return cart;
-    }
-
-    private UserOrder createOrder() {
-        return UserOrder.createFromCart(createCart());
-    }
-
-    private Item createItem(){
-        Item item = new Item();
-        item.setId(1L);
-        item.setDescription("clothes");
-        item.setPrice(BigDecimal.valueOf(7,05));
-        return item;
-    }
 
     @Test
     public void verifySubmit() {
-        ResponseEntity<UserOrder> userOrder = orderController.submit("test");
-        assertEquals(HttpStatus.OK, userOrder.getStatusCode());
+        Item item = new Item();
+        item.setId(1L);
+        item.setName("Java Web Developer");
+        item.setPrice(new BigDecimal(1500));
+
+        ArrayList<Item> items = new ArrayList<>();
+        items.add(item);
+
+        User user = new User();
+        user.setUsername("Patrizia");
+
+        Cart cart = new Cart();
+        cart.setId(1L);
+        cart.setItems(items);
+        cart.setUser(user);
+        cart.setTotal(item.getPrice());
+
+        user.setCart(cart);
+
+        when(userRepository.findByUsername("Patrizia")).thenReturn(user);
+
+        final ResponseEntity<UserOrder> response = orderController.submit("Patrizia");
+
+        assertNotNull(response);
+        assertEquals(200, response.getStatusCodeValue());
+
+        UserOrder order = response.getBody();
+
+        assertEquals(user, order.getUser());
+        assertEquals(items, order.getItems());
+        assertEquals(item.getPrice(), order.getTotal());
     }
 
     @Test
     public void verifyGetOrdersForUser() {
-        ResponseEntity<List<UserOrder>> ordersForUser = orderController.getOrdersForUser("test");
-        assertEquals(HttpStatus.OK, ordersForUser.getStatusCode());
+        Item item = new Item();
+        item.setId(1L);
+        item.setName("Java Web Developer");
+        item.setPrice(new BigDecimal(1500));
+
+        ArrayList<Item> items = new ArrayList<>();
+        items.add(item);
+
+        User user = new User();
+        user.setUsername("Patrizia");
+
+        Cart cart = new Cart();
+        cart.setId(1L);
+        cart.setItems(items);
+        cart.setUser(user);
+        cart.setTotal(item.getPrice());
+
+        user.setCart(cart);
+
+        orderController.submit("Patrizia");
+        when(userRepository.findByUsername("Patrizia")).thenReturn(user);
+
+        final ResponseEntity<List<UserOrder>> response = orderController.getOrdersForUser("Patrizia");
+
+        assertNotNull(response);
+        assertEquals(200, response.getStatusCodeValue());
+
+        List<UserOrder> orders = response.getBody();
+        assertNotNull(orders);
     }
 }

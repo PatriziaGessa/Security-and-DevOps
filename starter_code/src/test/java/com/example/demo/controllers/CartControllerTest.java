@@ -1,8 +1,6 @@
 package com.example.demo.controllers;
 
 import com.example.demo.TestUtils;
-import com.example.demo.controllers.CartController;
-import com.example.demo.controllers.UserController;
 import com.example.demo.model.persistence.Cart;
 import com.example.demo.model.persistence.Item;
 import com.example.demo.model.persistence.User;
@@ -11,134 +9,117 @@ import com.example.demo.model.persistence.repositories.ItemRepository;
 import com.example.demo.model.persistence.repositories.UserRepository;
 import com.example.demo.model.requests.CreateUserRequest;
 import com.example.demo.model.requests.ModifyCartRequest;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.junit.MockitoJUnitRunner;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertNotNull;
-import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
-@RunWith(MockitoJUnitRunner.class)
+
 public class CartControllerTest {
 
     private CartController cartController;
-
-    private UserController userController;
+    private final UserRepository userRepository = mock(UserRepository.class);
 
     private final CartRepository cartRepository = mock(CartRepository.class);
 
-    private final UserRepository userRepository = mock(UserRepository.class);
-
     private final ItemRepository itemRepository = mock(ItemRepository.class);
 
-    private final BCryptPasswordEncoder encoder = mock(BCryptPasswordEncoder.class);
 
     @Before
     public void setUp() {
         cartController = new CartController();
-        userController = new UserController();
         TestUtils.injectObjects(cartController, "userRepository", userRepository);
         TestUtils.injectObjects(cartController, "cartRepository", cartRepository);
         TestUtils.injectObjects(cartController, "itemRepository", itemRepository);
-        TestUtils.injectObjects(userController, "userRepository", userRepository);
-        TestUtils.injectObjects(userController, "cartRepository", cartRepository);
-        TestUtils.injectObjects(userController, "bCryptPasswordEncoder", encoder);
-        when(userRepository.findByUsername("test")).thenReturn(createUser());
-        when(itemRepository.findById(1L)).thenReturn(Optional.of(createItem()));
-        when(cartRepository.save(any())).thenReturn(createCart());
+
     }
 
-    private User createUser() {
+
+    @Test
+    public void verifyAddToCart() {
+        Cart userCart = new Cart();
+
         User user = new User();
-        user.setId(1L);
-        user.setUsername("test");
-        user.setPassword("testPassword");
-        user.setCart(createCart());
-        return user;
-    }
+        user.setUsername("Patrizia");
+        user.setCart(userCart);
 
-    public Cart createCart() {
-        Cart cart = new Cart();
-        cart.setId(1L);
-        cart.addItem(createItem());
-        return cart;
-    }
 
-    private Item createItem() {
         Item item = new Item();
         item.setId(1L);
-        item.setDescription("clothes");
-        item.setPrice(BigDecimal.valueOf(7, 05));
-        return item;
+        item.setName("Java Web Developer");
+        item.setPrice(new BigDecimal(1500));
+        List<Item> listItems = new ArrayList<>();
+        listItems.add(item);
+        listItems.add(item);
+
+        when(userRepository.findByUsername(user.getUsername())).thenReturn(user);
+        when(itemRepository.findById(item.getId())).thenReturn(Optional.of(item));
+
+        ModifyCartRequest modifyCartRequest = new ModifyCartRequest();
+        modifyCartRequest.setQuantity(1);
+        modifyCartRequest.setItemId(1L);
+        modifyCartRequest.setUsername("Patrizia");
+
+        modifyCartRequest.setItemId(item.getId());
+        modifyCartRequest.setQuantity(2);
+        ResponseEntity<Cart> responseEntity = cartController.addToCart(modifyCartRequest);
+
+        assertEquals(HttpStatus.OK, responseEntity.getStatusCode());
+
+        Cart cart = responseEntity.getBody();
+
+        assertNotNull(cart);
+        assertEquals(new BigDecimal(2000), cart.getTotal());
+        assertEquals(listItems, cart.getItems());
+
+
     }
 
     @Test
-    public void verifyAddToCart() throws Exception {
-        when(encoder.encode("testPassword")).thenReturn("thisIsHashed");
-        CreateUserRequest r = new CreateUserRequest();
-        r.setUsername("test");
-        r.setPassword("testPassword");
-        r.setConfirmPassword("testPassword");
+    public void verifyRemoveFromCart() {
+        Cart userCart = new Cart();
 
-        ResponseEntity<User> response = userController.createUser(r);
+        User user = new User();
+        user.setUsername("Patrizia");
+        user.setCart(userCart);
 
-        assertNotNull(response);
-        assertEquals(200, response.getStatusCodeValue());
+        Item item = new Item();
+        item.setId(1L);
+        item.setName("Become a Java Web Developer - Nanodegree Program");
+        item.setPrice(new BigDecimal(1000));
+        List<Item> listItems = new ArrayList<>();
+        listItems.add(item);
 
-        User u = response.getBody();
-        assertNotNull(u);
-        assertEquals(0, u.getId());
-        assertEquals("test", u.getUsername());
-        assertEquals("thisIsHashed", u.getPassword());
+        when(userRepository.findByUsername(user.getUsername())).thenReturn(user);
+        when(itemRepository.findById(item.getId())).thenReturn(Optional.of(item));
 
-        ModifyCartRequest c = new ModifyCartRequest();
-        c.setUsername(u.getUsername());
-        c.setItemId(1);
-        c.setQuantity(1);
+        ModifyCartRequest modifyCartRequest = new ModifyCartRequest();
+        modifyCartRequest.setQuantity(1);
+        modifyCartRequest.setItemId(1L);
+        modifyCartRequest.setUsername("Patrizia");
 
-        ResponseEntity<Cart> cart = cartController.addTocart(c);
-
-        assertNotNull(cart);
-        assertEquals(HttpStatus.OK, cart.getStatusCode());
-    }
-
-    @Test
-    public void verifyRemoveFromCart() throws Exception {
-        when(encoder.encode("testPassword")).thenReturn("thisIsHashed");
-        CreateUserRequest r = new CreateUserRequest();
-        r.setUsername("test");
-        r.setPassword("testPassword");
-        r.setConfirmPassword("testPassword");
-
-        ResponseEntity<User> response = userController.createUser(r);
+        ResponseEntity<Cart> response = cartController.removeFromCart(modifyCartRequest);
+        Cart cart = response.getBody();
 
         assertNotNull(response);
-        assertEquals(200, response.getStatusCodeValue());
+        assertNotNull(response.getBody());
+        assertEquals(HttpStatus.OK, response.getStatusCode());
 
-        User u = response.getBody();
-        assertNotNull(u);
-        assertEquals(0, u.getId());
-        assertEquals("test", u.getUsername());
-        assertEquals("thisIsHashed", u.getPassword());
+        assertEquals(0, cart.getItems().size());
 
-        ModifyCartRequest c = new ModifyCartRequest();
-        c.setUsername(u.getUsername());
-        c.setItemId(1);
-        c.setQuantity(1);
 
-        ResponseEntity<Cart> cart = cartController.removeFromcart(c);
-
-        assertNotNull(cart);
-        assertEquals(HttpStatus.OK, cart.getStatusCode());
     }
 }
