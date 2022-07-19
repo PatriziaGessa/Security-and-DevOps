@@ -7,6 +7,7 @@ import com.example.demo.model.persistence.repositories.UserRepository;
 import com.example.demo.model.requests.CreateUserRequest;
 import org.junit.Assert;
 import org.junit.Before;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.junit.MockitoJUnitRunner;
@@ -31,7 +32,17 @@ public class UserControllerTest {
 
     private final BCryptPasswordEncoder encoder = mock(BCryptPasswordEncoder.class);
 
-    @Before
+    private static User user;
+
+    @BeforeClass
+    public static void init() {
+        String nameUser = "user";
+        String passUser = "userPassword";
+        user = new User();
+        user.setPassword(passUser);
+        user.setUsername(nameUser);
+    }
+
     public void setUp() {
         userController = new UserController();
         TestUtils.injectObjects(userController, "userRepository", userRepository);
@@ -39,28 +50,36 @@ public class UserControllerTest {
         TestUtils.injectObjects(userController, "bCryptPasswordEncoder", encoder);
     }
 
-    @Test
-    public void verifyCreateUser() throws Exception {
-        when(encoder.encode("testPassword")).thenReturn("thisIsHashed");
-        CreateUserRequest r = new CreateUserRequest();
-        r.setUsername("Patrizia");
-        r.setPassword("testPassword");
-        r.setConfirmPassword("testPassword");
 
-        final ResponseEntity<User> response = userController.createUser(r);
+    @Test
+    public void test_createUserHappyPath() throws Exception { //happy path convention for sanity tests
+        when(encoder.encode(user.getPassword())).thenReturn("HashedSuccessFully"); //stubbing
+
+        CreateUserRequest userRequest = createUserRequest();
+
+        final ResponseEntity<User> response = userController.createUser(userRequest);
 
         assertNotNull(response);
         assertEquals(200, response.getStatusCodeValue());
 
-        User u = response.getBody();
-        assertNotNull(u);
-        assertEquals(0, u.getId());
-        assertEquals("Patrizia", u.getUsername());
-        assertEquals("thisIsHashed", u.getPassword());
+        User savedUser = response.getBody();
+        assertNotNull(savedUser);
+        assertEquals(0, savedUser.getId());
+        assertEquals(user.getUsername(), savedUser.getUsername());
+        assertEquals("HashedSuccessFully", savedUser.getPassword());
     }
 
     @Test
-    public void verifyFindById() throws Exception {
+    public void verifyCreateUser() {
+        CreateUserRequest userRequest = createUserRequest();
+        userRequest.setConfirmPassword("pass1");
+
+        final ResponseEntity<User> response = userController.createUser(userRequest);
+        Assert.assertEquals(400, response.getStatusCodeValue());
+    }
+
+    @Test
+    public void verifyFindById() {
         when(encoder.encode("testPassword")).thenReturn("thisIsHashed");
         CreateUserRequest ur = new CreateUserRequest();
         ur.setUsername("Patrizia");
@@ -114,5 +133,14 @@ public class UserControllerTest {
         assertEquals("thisIsHashed", userFound.getPassword());
 
 
+    }
+
+    private CreateUserRequest createUserRequest() {
+        CreateUserRequest userRequest = new CreateUserRequest();
+        userRequest.setUsername(user.getUsername());
+        userRequest.setPassword(user.getPassword());
+        userRequest.setConfirmPassword(user.getPassword());
+
+        return userRequest;
     }
 }
