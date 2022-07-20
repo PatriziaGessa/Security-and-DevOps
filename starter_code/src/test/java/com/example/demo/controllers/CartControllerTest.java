@@ -7,9 +7,8 @@ import com.example.demo.model.persistence.User;
 import com.example.demo.model.persistence.repositories.CartRepository;
 import com.example.demo.model.persistence.repositories.ItemRepository;
 import com.example.demo.model.persistence.repositories.UserRepository;
-import com.example.demo.model.requests.CreateUserRequest;
 import com.example.demo.model.requests.ModifyCartRequest;
-import org.junit.Assert;
+
 import org.junit.Before;
 import org.junit.Test;
 
@@ -82,7 +81,7 @@ public class CartControllerTest {
         Cart cart = responseEntity.getBody();
 
         assertNotNull(cart);
-        assertEquals(new BigDecimal(2000), cart.getTotal());
+        assertEquals(new BigDecimal(3000), cart.getTotal());
         assertEquals(listItems, cart.getItems());
 
 

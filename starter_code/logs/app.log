@@ -1,1 +1,203 @@
 2022-07-20 00:38:37,932 INFO c.e.d.c.UserController [main] Cart successfully created.
+2022-07-20 01:28:44,135 INFO c.e.d.c.UserController [main] Cart successfully updated.
+2022-07-20 10:10:31,515 ERROR c.e.d.c.OrderController [main] There is no Username in database
+2022-07-20 10:10:31,560 INFO c.e.d.c.OrderController [main] Orders from user Patrizia found.
+2022-07-20 10:10:31,571 INFO c.e.d.c.OrderController [main] New order was successfully added
+2022-07-20 10:11:01,027 ERROR o.s.b.SpringApplication [main] Application run failed
+org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.web.context.support.GenericWebApplicationContext]: Constructor threw exception; nested exception is java.lang.NoClassDefFoundError: org/springframework/core/metrics/ApplicationStartup
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:224) ~[spring-beans-5.3.20.jar:5.3.20]
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:146) ~[spring-beans-5.3.20.jar:5.3.20]
+	at org.springframework.boot.SpringApplication.createApplicationContext(SpringApplication.java:607) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:310) [spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:127) [spring-boot-test-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99) [spring-test-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:117) [spring-test-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:108) [spring-test-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:190) [spring-test-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:132) [spring-test-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:246) [spring-test-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227) [spring-test-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289) [spring-test-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit-4.13.2.jar:4.13.2]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291) [spring-test-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246) [spring-test-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97) [spring-test-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293) [junit-4.13.2.jar:4.13.2]
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61) [spring-test-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70) [spring-test-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413) [junit-4.13.2.jar:4.13.2]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190) [spring-test-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137) [junit-4.13.2.jar:4.13.2]
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:69) [junit-rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38) [junit-rt.jar:?]
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11) [idea_rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:235) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:54) [junit-rt.jar:?]
+Caused by: java.lang.NoClassDefFoundError: org/springframework/core/metrics/ApplicationStartup
+	at org.springframework.beans.factory.support.AbstractBeanFactory.<init>(AbstractBeanFactory.java:184) ~[spring-beans-5.3.20.jar:5.3.20]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.<init>(AbstractAutowireCapableBeanFactory.java:176) ~[spring-beans-5.3.20.jar:5.3.20]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.<init>(DefaultListableBeanFactory.java:193) ~[spring-beans-5.3.20.jar:5.3.20]
+	at org.springframework.context.support.GenericApplicationContext.<init>(GenericApplicationContext.java:112) ~[spring-context-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.web.context.support.GenericWebApplicationContext.<init>(GenericWebApplicationContext.java:81) ~[spring-web-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77) ~[?:?]
+	at jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:?]
+	at java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499) ~[?:?]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:480) ~[?:?]
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:211) ~[spring-beans-5.3.20.jar:5.3.20]
+	... 33 more
+Caused by: java.lang.ClassNotFoundException: org.springframework.core.metrics.ApplicationStartup
+	at jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[?:?]
+	at jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[?:?]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:520) ~[?:?]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.<init>(AbstractBeanFactory.java:184) ~[spring-beans-5.3.20.jar:5.3.20]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.<init>(AbstractAutowireCapableBeanFactory.java:176) ~[spring-beans-5.3.20.jar:5.3.20]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.<init>(DefaultListableBeanFactory.java:193) ~[spring-beans-5.3.20.jar:5.3.20]
+	at org.springframework.context.support.GenericApplicationContext.<init>(GenericApplicationContext.java:112) ~[spring-context-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.web.context.support.GenericWebApplicationContext.<init>(GenericWebApplicationContext.java:81) ~[spring-web-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77) ~[?:?]
+	at jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:?]
+	at java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499) ~[?:?]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:480) ~[?:?]
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:211) ~[spring-beans-5.3.20.jar:5.3.20]
+	... 33 more
+2022-07-20 10:11:01,073 ERROR o.s.t.c.TestContextManager [main] Caught exception while allowing TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener@593e824f] to prepare test instance [com.example.demo.SareetaApplicationTests@72ccd81a]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:125) ~[spring-test-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:108) ~[spring-test-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:190) ~[spring-test-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:132) ~[spring-test-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:246) [spring-test-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:227) [spring-test-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289) [spring-test-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit-4.13.2.jar:4.13.2]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291) [spring-test-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:246) [spring-test-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:97) [spring-test-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.junit.runners.ParentRunner$4.run(ParentRunner.java:331) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:79) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:329) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.access$100(ParentRunner.java:66) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:293) [junit-4.13.2.jar:4.13.2]
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61) [spring-test-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:70) [spring-test-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.junit.runners.ParentRunner$3.evaluate(ParentRunner.java:306) [junit-4.13.2.jar:4.13.2]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:413) [junit-4.13.2.jar:4.13.2]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:190) [spring-test-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:137) [junit-4.13.2.jar:4.13.2]
+	at com.intellij.junit4.JUnit4IdeaTestRunner.startRunnerWithArgs(JUnit4IdeaTestRunner.java:69) [junit-rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38) [junit-rt.jar:?]
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11) [idea_rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:235) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:54) [junit-rt.jar:?]
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.web.context.support.GenericWebApplicationContext]: Constructor threw exception; nested exception is java.lang.NoClassDefFoundError: org/springframework/core/metrics/ApplicationStartup
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:224) ~[spring-beans-5.3.20.jar:5.3.20]
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:146) ~[spring-beans-5.3.20.jar:5.3.20]
+	at org.springframework.boot.SpringApplication.createApplicationContext(SpringApplication.java:607) ~[spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:310) ~[spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:127) ~[spring-boot-test-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99) ~[spring-test-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:117) ~[spring-test-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	... 27 more
+Caused by: java.lang.NoClassDefFoundError: org/springframework/core/metrics/ApplicationStartup
+	at org.springframework.beans.factory.support.AbstractBeanFactory.<init>(AbstractBeanFactory.java:184) ~[spring-beans-5.3.20.jar:5.3.20]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.<init>(AbstractAutowireCapableBeanFactory.java:176) ~[spring-beans-5.3.20.jar:5.3.20]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.<init>(DefaultListableBeanFactory.java:193) ~[spring-beans-5.3.20.jar:5.3.20]
+	at org.springframework.context.support.GenericApplicationContext.<init>(GenericApplicationContext.java:112) ~[spring-context-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.web.context.support.GenericWebApplicationContext.<init>(GenericWebApplicationContext.java:81) ~[spring-web-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77) ~[?:?]
+	at jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:?]
+	at java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499) ~[?:?]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:480) ~[?:?]
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:211) ~[spring-beans-5.3.20.jar:5.3.20]
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:146) ~[spring-beans-5.3.20.jar:5.3.20]
+	at org.springframework.boot.SpringApplication.createApplicationContext(SpringApplication.java:607) ~[spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:310) ~[spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:127) ~[spring-boot-test-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99) ~[spring-test-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:117) ~[spring-test-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	... 27 more
+Caused by: java.lang.ClassNotFoundException: org.springframework.core.metrics.ApplicationStartup
+	at jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[?:?]
+	at jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[?:?]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:520) ~[?:?]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.<init>(AbstractBeanFactory.java:184) ~[spring-beans-5.3.20.jar:5.3.20]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.<init>(AbstractAutowireCapableBeanFactory.java:176) ~[spring-beans-5.3.20.jar:5.3.20]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.<init>(DefaultListableBeanFactory.java:193) ~[spring-beans-5.3.20.jar:5.3.20]
+	at org.springframework.context.support.GenericApplicationContext.<init>(GenericApplicationContext.java:112) ~[spring-context-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.web.context.support.GenericWebApplicationContext.<init>(GenericWebApplicationContext.java:81) ~[spring-web-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[?:?]
+	at jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77) ~[?:?]
+	at jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[?:?]
+	at java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499) ~[?:?]
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:480) ~[?:?]
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:211) ~[spring-beans-5.3.20.jar:5.3.20]
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:146) ~[spring-beans-5.3.20.jar:5.3.20]
+	at org.springframework.boot.SpringApplication.createApplicationContext(SpringApplication.java:607) ~[spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:310) ~[spring-boot-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:127) ~[spring-boot-test-2.1.5.RELEASE.jar:2.1.5.RELEASE]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:99) ~[spring-test-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:117) ~[spring-test-5.1.7.RELEASE.jar:5.1.7.RELEASE]
+	... 27 more
+2022-07-20 10:14:45,757 INFO c.e.d.c.UserController [main] creating new user user
+2022-07-20 10:14:45,766 INFO c.e.d.c.UserController [main] Username set with user
+2022-07-20 10:14:45,770 INFO c.e.d.c.UserController [main] User name(user) was successfully created
+2022-07-20 10:14:45,785 INFO c.e.d.c.UserController [main] creating new user Patrizia
+2022-07-20 10:14:45,785 INFO c.e.d.c.UserController [main] Username set with Patrizia
+2022-07-20 10:14:45,786 INFO c.e.d.c.UserController [main] User name(Patrizia) was successfully created
+2022-07-20 10:14:45,787 INFO c.e.d.c.UserController [main] creating new user Patrizia
+2022-07-20 10:14:45,788 INFO c.e.d.c.UserController [main] Username set with Patrizia
+2022-07-20 10:14:45,794 INFO c.e.d.c.UserController [main] User name(Patrizia) was successfully created
+2022-07-20 10:14:45,797 INFO c.e.d.c.UserController [main] creating new user user
+2022-07-20 10:14:45,798 INFO c.e.d.c.UserController [main] Username set with user
+2022-07-20 10:14:45,798 ERROR c.e.d.c.UserController [main] Password need to longer than seven characters and equals to confirm password
+2022-07-20 10:15:15,130 INFO c.e.d.c.UserController [main] Cart successfully created.
+2022-07-20 10:15:34,742 INFO c.e.d.c.UserController [main] Cart successfully created.
+2022-07-20 10:18:58,249 ERROR c.e.d.c.OrderController [main] There is no Username in database
+2022-07-20 10:18:58,276 INFO c.e.d.c.OrderController [main] Orders from user Patrizia found.
+2022-07-20 10:18:58,279 INFO c.e.d.c.OrderController [main] New order was successfully added
+2022-07-20 10:19:17,293 INFO c.e.d.c.UserController [main] creating new user user
+2022-07-20 10:19:17,309 INFO c.e.d.c.UserController [main] Username set with user
+2022-07-20 10:19:17,313 INFO c.e.d.c.UserController [main] User name(user) was successfully created
+2022-07-20 10:19:17,341 INFO c.e.d.c.UserController [main] creating new user Patrizia
+2022-07-20 10:19:17,342 INFO c.e.d.c.UserController [main] Username set with Patrizia
+2022-07-20 10:19:17,343 INFO c.e.d.c.UserController [main] User name(Patrizia) was successfully created
+2022-07-20 10:19:17,348 INFO c.e.d.c.UserController [main] creating new user Patrizia
+2022-07-20 10:19:17,348 INFO c.e.d.c.UserController [main] Username set with Patrizia
+2022-07-20 10:19:17,349 INFO c.e.d.c.UserController [main] User name(Patrizia) was successfully created
+2022-07-20 10:19:17,358 INFO c.e.d.c.UserController [main] creating new user user
+2022-07-20 10:19:17,359 INFO c.e.d.c.UserController [main] Username set with user
+2022-07-20 10:19:17,359 ERROR c.e.d.c.UserController [main] Password need to longer than seven characters and equals to confirm password
+2022-07-20 10:22:21,571 INFO c.e.d.c.UserController [main] creating new user user
+2022-07-20 10:22:21,590 INFO c.e.d.c.UserController [main] Username set with user
+2022-07-20 10:22:21,594 INFO c.e.d.c.UserController [main] User name(user) was successfully created
+2022-07-20 10:22:21,624 INFO c.e.d.c.UserController [main] creating new user Patrizia
+2022-07-20 10:22:21,636 INFO c.e.d.c.UserController [main] Username set with Patrizia
+2022-07-20 10:22:21,636 INFO c.e.d.c.UserController [main] User name(Patrizia) was successfully created
+2022-07-20 10:22:21,638 INFO c.e.d.c.UserController [main] creating new user Patrizia
+2022-07-20 10:22:21,639 INFO c.e.d.c.UserController [main] Username set with Patrizia
+2022-07-20 10:22:21,639 INFO c.e.d.c.UserController [main] User name(Patrizia) was successfully created
+2022-07-20 10:22:21,643 INFO c.e.d.c.UserController [main] creating new user user
+2022-07-20 10:22:21,644 INFO c.e.d.c.UserController [main] Username set with user
+2022-07-20 10:22:21,644 ERROR c.e.d.c.UserController [main] Password need to longer than seven characters and equals to confirm password
+2022-07-20 10:34:08,318 INFO c.e.d.c.UserController [main] creating new user user
+2022-07-20 10:34:08,330 INFO c.e.d.c.UserController [main] Username set with user
+2022-07-20 10:34:08,334 INFO c.e.d.c.UserController [main] User name(user) was successfully created
+2022-07-20 10:34:08,354 INFO c.e.d.c.UserController [main] creating new user Patrizia
+2022-07-20 10:34:08,355 INFO c.e.d.c.UserController [main] Username set with Patrizia
+2022-07-20 10:34:08,356 INFO c.e.d.c.UserController [main] User name(Patrizia) was successfully created
+2022-07-20 10:34:08,358 INFO c.e.d.c.UserController [main] creating new user Patrizia
+2022-07-20 10:34:08,358 INFO c.e.d.c.UserController [main] Username set with Patrizia
+2022-07-20 10:34:08,359 INFO c.e.d.c.UserController [main] User name(Patrizia) was successfully created
+2022-07-20 10:34:08,363 INFO c.e.d.c.UserController [main] creating new user user
+2022-07-20 10:34:08,364 INFO c.e.d.c.UserController [main] Username set with user
+2022-07-20 10:34:08,364 ERROR c.e.d.c.UserController [main] Password need to longer than seven characters and equals to confirm password

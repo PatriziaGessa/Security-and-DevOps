@@ -9,8 +9,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.mockito.junit.MockitoJUnitRunner;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -21,6 +19,7 @@ import static junit.framework.TestCase.assertEquals;
 import static junit.framework.TestCase.assertNotNull;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
+
 
 
 public class UserControllerTest {
@@ -42,7 +41,7 @@ public class UserControllerTest {
         user.setPassword(passUser);
         user.setUsername(nameUser);
     }
-
+    @Before
     public void setUp() {
         userController = new UserController();
         TestUtils.injectObjects(userController, "userRepository", userRepository);
@@ -53,7 +52,7 @@ public class UserControllerTest {
 
     @Test
     public void test_createUserHappyPath() throws Exception { //happy path convention for sanity tests
-        when(encoder.encode(user.getPassword())).thenReturn("HashedSuccessFully"); //stubbing
+        when(encoder.encode(user.getPassword())).thenReturn("HashedSuccessFully");
 
         CreateUserRequest userRequest = createUserRequest();
 
